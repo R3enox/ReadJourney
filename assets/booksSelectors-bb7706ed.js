@@ -1,4 +1,4 @@
-import{p as o,j as i,L as n}from"./index-293646f1.js";const r=o.section`
+import{p as o,j as i,L as n}from"./index-953d7561.js";const r=o.section`
   background-color: #1f1f1f;
   padding: 20px;
   border-radius: 30px;

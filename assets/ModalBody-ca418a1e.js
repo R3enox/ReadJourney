@@ -1,4 +1,4 @@
-import{p as l,r as s,h as c,j as e,s as d}from"./index-293646f1.js";const p=l.div`
+import{p as l,r as s,i as c,j as e,s as d}from"./index-953d7561.js";const p=l.div`
   position: fixed;
   top: 0;
   right: 0;
@@ -42,7 +42,7 @@ import{p as l,r as s,h as c,j as e,s as d}from"./index-293646f1.js";const p=l.di
     height: 22px;
     stroke: #f9f9f9;
   }
-`,g=({body:n,setIsShowModal:t})=>{const a=document.getElementById("portal");s.useEffect(()=>(window.addEventListener("keydown",r),document.body.style.overflow="hidden",()=>{window.removeEventListener("keydown",r),document.body.style.overflow="auto"}),[]);const r=s.useCallback(o=>{o.code==="Escape"&&t(!1)},[t]),i=s.useCallback(o=>{o.target===o.currentTarget&&t(!1)},[t]);return c.createPortal(e.jsx(p,{onClick:i,children:e.jsxs("div",{className:"modal",children:[e.jsx("button",{className:"btnCross",type:"button",onClick:()=>t(!1),children:e.jsx("svg",{className:"iconClose",children:e.jsx("use",{href:d+"#icon-close"})})}),n]})}),a)},x=l.div`
+`,g=({body:n,setIsShowModal:t})=>{const i=document.getElementById("portal");s.useEffect(()=>(window.addEventListener("keydown",r),document.body.style.overflow="hidden",()=>{window.removeEventListener("keydown",r),document.body.style.overflow="auto"}),[]);const r=s.useCallback(o=>{o.code==="Escape"&&t(!1)},[t]),a=s.useCallback(o=>{o.target===o.currentTarget&&t(!1)},[t]);return c.createPortal(e.jsx(p,{onClick:a,children:e.jsxs("div",{className:"modal",children:[e.jsx("button",{className:"btnCross",type:"button",onClick:()=>t(!1),children:e.jsx("svg",{className:"iconClose",children:e.jsx("use",{href:d+"#icon-close"})})}),n]})}),i)},x=l.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -80,4 +80,4 @@ import{p as l,r as s,h as c,j as e,s as d}from"./index-293646f1.js";const p=l.di
     text-align: center;
     margin-bottom: 20px;
   }
-`,h=({book:n,btn:t})=>{const{imageUrl:a,title:r,author:i,totalPages:o}=n;return e.jsxs(x,{children:[e.jsx("img",{srcSet:a,alt:r,className:"imgBook"}),e.jsx("h2",{className:"titleBook",children:r}),e.jsx("p",{className:"author",children:i}),e.jsxs("p",{className:"totalPages",children:[o," pages"]}),t]})};export{g as M,h as a};
+`,h=({book:n,btn:t})=>{const{imageUrl:i,title:r,author:a,totalPages:o}=n;return e.jsxs(x,{children:[e.jsx("img",{srcSet:i,alt:r,className:"imgBook"}),e.jsx("h2",{className:"titleBook",children:r}),e.jsx("p",{className:"author",children:a}),e.jsxs("p",{className:"totalPages",children:[o," pages"]}),t]})};export{g as M,h as a};
