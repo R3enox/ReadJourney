@@ -3,10 +3,23 @@ import { toast } from 'react-toastify';
 import API from '../../services/axios';
 
 export const addLibrary = createAsyncThunk(
-  'books/add',
+  'books/add/id',
   async (id, thunkApi) => {
     try {
       const { data } = await API.post(`books/add/${id}`);
+      return data;
+    } catch (error) {
+      toast.error(error.message);
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const addBook = createAsyncThunk(
+  'books/add',
+  async (formData, thunkApi) => {
+    try {
+      const { data } = await API.post(`books/add/`, formData);
       return data;
     } catch (error) {
       toast.error(error.message);

@@ -10,7 +10,12 @@ import {
 } from './libraryFunctionsReducer';
 import { handlePending, handleRejected } from './libraryFunctionsReducer';
 
-import { addLibrary, getLibrary, removeLibraryBook } from './libraryOperations';
+import {
+  addBook,
+  addLibrary,
+  getLibrary,
+  removeLibraryBook,
+} from './libraryOperations';
 
 const STATUS = { PENDING: 'pending', REJECTED: 'rejected' };
 
@@ -24,6 +29,7 @@ const librarySlice = createSlice({
     builder
       .addCase(addLibrary.fulfilled, handleFulfilledAddLibrary)
       .addCase(getLibrary.fulfilled, handleFulfilledGetLibrary)
+      .addCase(addBook.fulfilled, handleFulfilledAddLibrary)
       .addCase(removeLibraryBook.fulfilled, handleFulfilledRemoveLibraryBok)
       .addMatcher(getActions(PENDING), handlePending)
       .addMatcher(getActions(REJECTED), handleRejected);

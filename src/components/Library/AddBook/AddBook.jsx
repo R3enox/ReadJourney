@@ -3,6 +3,7 @@ import { Form } from './AddBook.styled';
 import { useState } from 'react';
 import { TitleForm } from '../../TitleForm/TitleForm';
 import { BtnSbmt } from '../../Btn/BtnSbmt';
+import { addBook } from '../../../redux/library/libraryOperations';
 
 export const AddBook = () => {
   const [title, setTitle] = useState('');
@@ -23,8 +24,10 @@ export const AddBook = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const formData = { title, author, totalPages: pages };
+    console.log(formData);
     if (title || author || pages) {
-      dispatch();
+      dispatch(addBook(formData));
     }
   };
 
