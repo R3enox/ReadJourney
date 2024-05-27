@@ -1,4 +1,4 @@
-import{p,j as e,d as u,k as w,u as R,s as b,l as F,r as f,t as j,m as S,o as V,q as C}from"./index-6d463415.js";import{T as N,B as v,M,b as W,D as H}from"./Title-d6517b8d.js";import{b as D,a as Q,c as k,d as O}from"./book@2x-d623c287.js";const P=p.form`
+import{p,j as e,d as u,k as w,u as R,s as b,l as F,r as f,t as j,m as S,o as V,q as C}from"./index-2099c76c.js";import{T as N,B as v,M,b as W,D as H}from"./Title-96cd2c0b.js";import{b as D,a as Q,c as k,d as O}from"./book@2x-d623c287.js";const P=p.form`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -85,6 +85,7 @@ import{p,j as e,d as u,k as w,u as R,s as b,l as F,r as f,t as j,m as S,o as V,q
     letter-spacing: -0.02em;
     color: #686868;
     margin-bottom: 20px;
+    max-width: 305px;
   }
 
   .starImg {
