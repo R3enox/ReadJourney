@@ -21,6 +21,13 @@ export const Btn = styled.button`
     color: #1f1f1f;
     background-color: #f9f9f9;
   }
+
+  @media (min-width: 768px) {
+    min-width: 162px;
+    padding: 14px 28px;
+    font-size: 16px;
+    line-height: 1.12;
+  }
 `;
 
 export const Lnk = styled(Link)`

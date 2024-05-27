@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
 import { signInThunk } from '../../redux/user/userOperations';
 import { Section } from './LoginForm.styled';
+import { toastSuccess } from '../../helpers/toast';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export const LoginForm = () => {
 
   const onSubmit = (data) => {
     dispatch(signInThunk(data));
-
+    toastSuccess('Login successful!');
     navigate('/recommended');
   };
 

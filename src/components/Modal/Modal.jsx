@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import sprite from '../../assets/sprite.svg';
 import { Backdrop } from './Modal.styled';
 
-export const Modal = ({ body, setIsShowModal }) => {
+export const Modal = ({ maxwidth, body, setIsShowModal }) => {
   const portal = document.getElementById('portal');
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export const Modal = ({ body, setIsShowModal }) => {
   );
 
   return createPortal(
-    <Backdrop onClick={memoizedhandleOverlayClick}>
+    <Backdrop maxwidth={maxwidth} onClick={memoizedhandleOverlayClick}>
       <div className="modal">
         <button
           className="btnCross"

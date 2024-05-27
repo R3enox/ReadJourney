@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
 import API, { setAuthToken } from '../../services/axios';
+import { toastError } from '../../helpers/toast';
 
 export const signUpThunk = createAsyncThunk(
   'users/signup',
@@ -11,7 +11,7 @@ export const signUpThunk = createAsyncThunk(
       setAuthToken(data.token);
       return data;
     } catch (error) {
-      toast.error(error.message);
+      toastError(error.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -25,7 +25,7 @@ export const signInThunk = createAsyncThunk(
       setAuthToken(data.token);
       return data;
     } catch (error) {
-      toast.error(error.message);
+      toastError(error.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -39,6 +39,7 @@ export const signOutThunk = createAsyncThunk(
 
       return data;
     } catch (error) {
+      toastError(error.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -46,10 +47,13 @@ export const signOutThunk = createAsyncThunk(
 
 export const fetchCurrentThunk = createAsyncThunk(
   'users/current',
-  async (_, thunkApi) => {
+  async (_, { getState, rejectWithValue }) => {
     try {
-      const state = thunkApi.getState();
+      const state = getState();
       const accessToken = state.user.accessToken;
+      if (accessToken === null) {
+        return rejectWithValue('Unable to fetch user');
+      }
       setAuthToken(accessToken);
       const { data } = await API.get('/users/current');
       return data;
@@ -59,7 +63,8 @@ export const fetchCurrentThunk = createAsyncThunk(
         status,
         message: data.message,
       };
-      return thunkApi.rejectWithValue(error);
+      toastError(error.message);
+      return rejectWithValue(error);
     }
   }
 );

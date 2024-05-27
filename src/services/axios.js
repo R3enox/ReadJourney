@@ -13,13 +13,21 @@ export const setAuthToken = (token) => {
 instance.interceptors.response.use(
   (response) => response,
   async (error) => {
-    if (error.response.status === 401) {
+    const hasForbiddenRoutes =
+      error.request.responseURL.includes('signin') ||
+      error.request.responseURL.includes('refresh');
+
+    if (error.response.status === 401 && hasForbiddenRoutes) {
       try {
+        const refreshToken = store.getState().user.refreshToken;
+        setAuthToken(refreshToken);
+
         const { data } = await instance.get('/users/current/refresh');
+
         setAuthToken(data.token);
-        setAuthToken(data.refreshToken);
         store.dispatch(setTokens(data));
         error.config.headers.authorization = `Bearer ${data.token}`;
+
         return instance(error.config);
       } catch (error) {
         return Promise.reject(error);

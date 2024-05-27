@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 40px 70px 40px;
+
   .imgBook {
     width: 140px;
     height: 213px;
@@ -37,5 +39,24 @@ export const Wrapper = styled.div`
     letter-spacing: -0.02em;
     text-align: center;
     margin-bottom: 20px;
+  }
+
+  @media (min-width: 768px) {
+    padding: 50px 169px 50px;
+
+    .imgBook {
+      width: 153px;
+      height: 233px;
+    }
+    .titleBook {
+      font-size: 20px;
+    }
+    .author {
+      font-size: 14px;
+      line-height: 1.29;
+    }
+    .totalPages {
+      margin-bottom: 32px;
+    }
   }
 `;

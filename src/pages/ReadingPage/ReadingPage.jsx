@@ -11,12 +11,13 @@ import {
 } from '../../redux/books/booksOperations';
 import { selectBook } from '../../redux/books/booksSelectors';
 import { TitleReading } from '../../components/Reading/TitleReading/TitleReading';
+import { toastSuccess, toastWarn } from '../../helpers/toast';
 
 const ReadingPage = () => {
   const [page, setPage] = useState('');
   const [startStop, setStartStop] = useState(true);
   const [status, setStatus] = useState(true);
-  const { _id: id, progress } = useSelector(selectBook);
+  const { _id: id, progress, totalPages } = useSelector(selectBook);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -25,13 +26,27 @@ const ReadingPage = () => {
       id: id,
       page: page,
     };
-    if (startStop) {
-      setStartStop(false);
-      dispatch(readingStartThunk(formData));
-    } else {
-      setStartStop(true);
 
-      dispatch(readingFinishThunk(formData));
+    if (startStop && page < totalPages && page > 0) {
+      setStartStop(false);
+      setPage('');
+      toastSuccess('You have started reading the book!');
+      return dispatch(readingStartThunk(formData));
+    } else if (page <= totalPages && page > 0) {
+      setStartStop(true);
+      setPage('');
+      toastSuccess(
+        `You have finished reading the book in ${formData.page} page!`
+      );
+      return dispatch(readingFinishThunk(formData));
+    } else if (page <= 0) {
+      toastWarn(
+        `You cannot read fewer pages than the ${formData.page} pages of the book.`
+      );
+    } else {
+      toastWarn(
+        `You cannot read more pages than the ${totalPages} pages of the book.`
+      );
     }
   };
 

@@ -4,7 +4,7 @@ import sprite from '../../../assets/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectBooks } from '../../../redux/books/booksSelectors';
 import { recommendThunk } from '../../../redux/books/booksOperations';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 export const Books = () => {
   const dispatch = useDispatch();

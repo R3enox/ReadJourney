@@ -9,6 +9,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 import * as ROUTES from './constants/routes.js';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import SharedLayout from './components/SharedLayout/SharedLayout.jsx';
+import { ToastContainer } from 'react-toastify';
 
 const RecommendedPage = lazy(() =>
   import('./pages/RecommendedPage/RecommendedPage')
@@ -69,6 +70,7 @@ export const App = () => {
   }, [dispatch]);
   return (
     <AppWrapper>
+      <ToastContainer />
       <Routes>
         {appRoutesRestricted.map(({ path, element }) => (
           <Route key={path} path={path} element={element} />

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
 import API from '../../services/axios';
+import { toastError } from '../../helpers/toast';
 
 export const addLibrary = createAsyncThunk(
   'books/add/id',
@@ -9,7 +9,7 @@ export const addLibrary = createAsyncThunk(
       const { data } = await API.post(`books/add/${id}`);
       return data;
     } catch (error) {
-      toast.error(error.message);
+      toastError(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -22,18 +22,19 @@ export const addBook = createAsyncThunk(
       const { data } = await API.post(`books/add/`, formData);
       return data;
     } catch (error) {
-      toast.error(error.message);
+      toastError(error.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }
 );
 
-export const getLibrary = createAsyncThunk('books/own', async (_, thunkAPI) => {
+export const getLibrary = createAsyncThunk('books/own', async (_, thunkApi) => {
   try {
     const { data } = await API.get('books/own');
     return data;
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    toastError(error.response.data.message);
+    return thunkApi.rejectWithValue(error.message);
   }
 });
 
@@ -44,7 +45,7 @@ export const removeLibraryBook = createAsyncThunk(
       const { data } = await API.delete(`books/remove/${id}`);
       return data;
     } catch (error) {
-      toast.error(error.message);
+      toastError(error.response.data.message);
       return thunkApi.rejectWithValue(error.message);
     }
   }

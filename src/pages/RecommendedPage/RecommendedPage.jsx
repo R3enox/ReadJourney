@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Dashboard } from '../../components/Dashboard/Dashboard';
-import { Filters } from '../../components/Filters/Filters';
-import { RecommendedBooks } from '../../components/RecommendedBooks/RecommendedBooks';
-import { SummaryBlock } from '../../components/SummaryBlock/SummaryBlock';
+import { Filters } from '../../components/Recommended/Filters/Filters';
+import { RecommendedBooks } from '../../components/Recommended/RecommendedBooks/RecommendedBooks';
+import { SummaryBlock } from '../../components/Recommended/SummaryBlock/SummaryBlock';
 import { RecommendedPageWrapper } from './RecommendedPage.styled';
 import { recommendThunk } from '../../redux/books/booksOperations';
 import { useDispatch } from 'react-redux';
 import { getDeviceType } from '../../helpers/getDeviceType';
 import { RecommendLimit } from '../../constants/paginationLimits';
-import { QuoteBlock } from '../../components/QuoteBlock/QuoteBlock';
+import { QuoteBlock } from '../../components/Recommended/QuoteBlock/QuoteBlock';
 
 const RecommendedPage = () => {
   const [title, setTitle] = useState('');

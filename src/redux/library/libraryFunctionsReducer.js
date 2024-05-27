@@ -15,7 +15,8 @@ export const handleRejected = (state, { payload }) => {
   state.error = payload;
 };
 
-export const handleFulfilledAddLibrary = (state) => {
+export const handleFulfilledAddLibrary = (state, { payload }) => {
+  state.libraryBooks.push(payload);
   state.isLoading = false;
   state.totalCount += 1;
 };

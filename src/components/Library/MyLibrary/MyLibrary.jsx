@@ -10,8 +10,8 @@ import { LibraryList } from '../LibraryList/LibraryList';
 
 export const MyLibrary = () => {
   const [filteredBooks, setFilteredBooks] = useState(null);
-  const dispatch = useDispatch();
   const results = useSelector(selectLibraryBooks);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getLibrary());

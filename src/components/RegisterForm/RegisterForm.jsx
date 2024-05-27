@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
 import { signUpThunk } from '../../redux/user/userOperations';
 import { Section } from './RegisterForm.styled';
+import { toastSuccess } from '../../helpers/toast';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ export const RegisterForm = () => {
       })
     );
     dispatch(signUpThunk(data));
-
+    toastSuccess('Registration successful!');
     navigate('/recommended');
   };
 

@@ -15,16 +15,16 @@ export const Backdrop = styled.div`
 
   .modal {
     position: relative;
-    padding: 40px 50px;
-    max-width: 335px;
+    max-width: ${(props) => props.maxwidth || '335px'};
     width: 100%;
-    min-height: 421px;
     background-color: #1f1f1f;
     border: 1px solid rgba(104, 104, 104, 0.2);
     border-radius: 12px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
 
     &:hover {
       cursor: auto;
@@ -43,5 +43,11 @@ export const Backdrop = styled.div`
     width: 22px;
     height: 22px;
     stroke: #f9f9f9;
+  }
+
+  @media (min-width: 768px) {
+    .modal {
+      max-width: ${(props) => props.maxwidth || '500px'};
+    }
   }
 `;
