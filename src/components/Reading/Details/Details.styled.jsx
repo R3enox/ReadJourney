@@ -17,6 +17,7 @@ export const TextWrapper = styled.div`
     letter-spacing: -0.02em;
     color: #686868;
     margin-bottom: 20px;
+    max-width: 305px;
   }
 
   .starImg {

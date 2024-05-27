@@ -56,6 +56,23 @@ desktop: від 1440px
 <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git"  width="40" height="40"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="Skills" align="left" width="40" height="40"/>
 
+### **Встановлення**: 
+  1.Клонуйте репозіторій::
+```
+git clone https://github.com/R3enox/ReadJourney.git
+cd read-journey
+```
+  2.Встановіть залежності:
+```
+npm install Run the application: Run app using following command:
+```
+
+### **Запустіть програму**: 
+  1.Запустіть програму за допомогою наступної команди:
+```
+npm run dev
+```
+
 ## 📥Посилання
 
 Для того, щоб почати користуватись нашим додатком, перейди за
